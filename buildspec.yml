@@ -18,7 +18,7 @@ phases:
       - echo "Changing into source directory $CODEBUILD_SRC_DIR"
       - cd $CODEBUILD_SRC_DIR
       - echo "Packaging cloudformation template"
-      - aws cloudformation package --template-file template.yaml --s3-bucket artifactsbucket33142782 --output-template-file packaged-template.yaml
+      - aws cloudformation package --template-file template.yml --s3-bucket artifactsbucket33142782 --output-template-file packaged-template.yaml
   post_build:
     on-failure: ABORT
     commands:
