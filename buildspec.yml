@@ -1,0 +1,23 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: 3.10
+    commands:
+      - python3 -m venv /root/venv
+      - . /root/venv/bin/activate
+
+  pre_build:
+    on-failure: ABORT
+    commands:
+      - echo Pre_build_step
+
+  build:
+    on-failure: ABORT
+    commands:
+      - echo Build started
+
+  post_build:
+    on-failure: ABORT
+    commands:
+      - echo Build completed on `date`
