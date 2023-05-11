@@ -1,12 +1,11 @@
 version: 0.2
 phases:
-  install:
-    runtime-versions:
-      python: 3.9
-    commands:
-      - python3 -m venv /root/venv
-      - . /root/venv/bin/activate
-
+#   install:
+#     runtime-versions:
+#       python: 3.9
+#     commands:
+#       - python3 -m venv /root/venv
+#       - . /root/venv/bin/activate
   pre_build:
     on-failure: ABORT
     commands:
@@ -16,8 +15,14 @@ phases:
     on-failure: ABORT
     commands:
       - echo Build started
-
+      - echo "Changing into source directory $CODEBUILD_SRC_DIR"
+      - cd $CODEBUILD_SRC_DIR
+      - echo "Packaging cloudformation template"
+      - aws cloudformation package --template-file template.yaml --s3-bucket artifactsbucket33142782 --output-template-file packaged-template.yaml
   post_build:
     on-failure: ABORT
     commands:
-      - echo Build completed on `date`
+      - echo Build completed
+artifacts:
+  files:
+    - packaged-template.yaml
