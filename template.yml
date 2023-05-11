@@ -68,4 +68,4 @@ Resources:
       Handler: index.lambda_handler
       MemorySize: 128
       Role: !Sub ${LambdaExecutionRole.Arn}
-      Runtime: python3.6
+      Runtime: python3.8
