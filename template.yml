@@ -38,7 +38,11 @@ Resources:
     Properties:
       FunctionName: "demo-lambda"
       Description: "demo lambda"
-      Code: ./src/
+      Code:
+        ZipFile: |
+          def my_handler(event, context):
+            message = 'Hello Lambda World!'
+            return message
       Handler: lambda.handler
       Runtime: python3.9
       Timeout: 900
