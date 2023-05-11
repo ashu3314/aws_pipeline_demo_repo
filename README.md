@@ -1,1 +1,1 @@
-# aws_pipeline_demo_repo
+# POC to deploy sample lambda in AWS through CICD pipeline.
