@@ -44,7 +44,7 @@ Resources:
       Code:
         ZipFile: |
           def my_handler(event, context):
-            message = 'Hello Lambda World!'
+            message = 'Hello Lambda!'
             return message
       Handler: lambda.handler
       Runtime: python3.9
